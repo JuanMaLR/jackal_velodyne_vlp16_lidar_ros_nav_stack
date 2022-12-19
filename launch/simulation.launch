@@ -1,0 +1,22 @@
+<launch>
+    
+    <!-- Launching gazebo maze simulation -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/gazebo_launch.launch"/> 
+
+    <!-- Launching Rviz with mapping configuration (only uncomment when 
+    creating the map of the environment) -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz_launch.launch"/> 
+
+    <!-- Launching Rviz with navigation visualization -->
+
+
+    <!-- Launching PCL nodes for PointCloud downsampling -->
+
+
+    <!-- Launching PointCloud to LaserScan conversion node -->
+
+
+    <!-- Launching ROS Navigation Stack nodes -->
+
+
+</launch>

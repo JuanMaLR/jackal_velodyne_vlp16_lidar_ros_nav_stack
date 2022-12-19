@@ -9,7 +9,7 @@ project(jackal_velodyne_vlp16_lidar_ros_nav_stack)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
-  nav_msg
+  nav_msgs
   pcl_conversions
   pcl_ros
   roscpp
