@@ -5,8 +5,6 @@
   <arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/jackal_race.world" />
   <arg name="robot_configuration" default="complete" />
 
-  <!-- Configuration of Jackal which you would like to simulate.
-       See jackal_description for details. -->
   <!--<arg name="config" default="complete" />-->
 
   <!-- Launch Gazebo with the specified world -->

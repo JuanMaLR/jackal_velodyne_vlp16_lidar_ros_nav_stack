@@ -1,4 +1,5 @@
 <launch>
+  <!-- Type of Jackal simulation configuration you need -->
   <arg name="config" default="lidar3d" />
 
   <param name="robot_description"
