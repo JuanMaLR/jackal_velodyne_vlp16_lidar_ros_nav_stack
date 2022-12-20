@@ -7,7 +7,7 @@
 
   <!-- Configuration of Jackal which you would like to simulate.
        See jackal_description for details. -->
-  <arg name="config" default="complete" />
+  <!--<arg name="config" default="complete" />-->
 
   <!-- Launch Gazebo with the specified world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -19,9 +19,9 @@
   </include>
 
   <!-- Load Jackal's description, controllers, and teleop nodes. -->
-  <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/description.launch">
-    <arg name="config" value="$(arg config)" />
-  </include>
+  <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/description.launch"/>
+    <!--<arg name="config" value="$(arg config)" />
+  </include>-->
   <!--
   <include file="$(find jackal_control)/launch/control.launch" />
   <include file="$(find jackal_tools)/launch/control_withgps.launch" />

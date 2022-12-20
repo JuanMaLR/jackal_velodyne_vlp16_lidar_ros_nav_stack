@@ -1,0 +1,46 @@
+<launch>
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+        <remap from="cloud_in" to="/velodyne_points/filtered"/>
+        <!--<remap from="cloud_in" to="/velodyne_points/floor_removed"/>-->
+        <!--<remap from="cloud_in" to="/mid/points"/>--> <!-- From where I take the input pointCloud -->
+        <remap from="scan" to="/laser_scan/data"/> <!-- Where do we publish our LaserScan data (the one converted from the PointCloud)-->
+        <rosparam>
+            <!-- target_frame: frame from which the output data will be published -->
+            transform_tolerance: 0.01 <!-- For error measurmenets -->
+            <!-- The distance from which the points will be taken into account.
+                Meaning that if we have points in our cloud that are outside of this
+                range, then those points are eliminated and not added to the LaserScan output-->
+            min_height: -1.0
+            max_height: 1.0
+
+            <!-- LaserScan message variables. Remember a LaserScan message structure
+                It has an angle_min, angle_max, angle_increment, ranges, etc.
+                Which we are setting here. It's like if we were building the LaserScan
+                message from scratch with the parameters we want it to have -->
+            <!-- Our LaserScan message will have points from all directions (360d) -->
+            angle_min: -3.1416
+            angle_max: 3.1416
+            <!-- The distance we have between each LaserScan reading (each laser beam)
+                PI/360d -->
+            angle_increment: 0.0087
+            <!-- -->
+            scan_time: 0.1
+            <!-- Distance range that the LiDAR will be reading information from.
+                This means, that I will have points in my LaserScan message that go 
+                from 0.1m to 20m, anything less or above this is discarded.
+                All the points from the PointCloud that are between 0.1 and 20m 
+                will be passed to the LaserScan, will be converted -->
+            range_min: 0.1
+            range_max: 20.0
+            <!-- To substitute points that are out of range (0.1 to 20m) with inf reserved keyword -->
+            use_inf: true
+            <!--  Affects number of pointclouds queued for processing and threads used
+                0: Detect number of cores in the computer where the program is running
+                1: Single threaded
+                2->inf: Parallelism level  
+                Numer 1 is recommended, because it uses one single thread. Using more than
+                1 thread will consume most of your CPU and might slow down your computer -->
+            concurrency_level: 0
+        </rosparam>
+    </node>
+</launch>
