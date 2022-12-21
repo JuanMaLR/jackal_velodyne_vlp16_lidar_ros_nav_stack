@@ -5,10 +5,10 @@
 
     <!-- Launching Rviz with mapping configuration (only uncomment when 
     creating the map of the environment) -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz_launch.launch"/> 
+    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz_launch.launch"/>-->
 
     <!-- Launching Rviz with navigation visualization -->
-
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz_launch_nav.launch"/> 
 
     <!-- Launching PCL nodes for PointCloud downsampling -->
     <!-- First, floor is removed because it's irrelevant (deprecated, done in next step) -->
@@ -21,6 +21,12 @@
     <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/point_cloud_to_laser_scan.launch"/>
 
     <!-- Launching ROS Navigation Stack nodes -->
+    <!-- Launch gmapping node and move base to generate map of environment -->
+    <!-- This is only done one time to generate the map, it should be commented 
+    once the map is obtained -->
+    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_mapping.launch"/>-->
 
+    <!-- Launch map, localization and navigation -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_navigating.launch"/>
 
 </launch>

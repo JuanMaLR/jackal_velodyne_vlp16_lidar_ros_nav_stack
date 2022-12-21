@@ -3,7 +3,7 @@
         <remap from="cloud_in" to="/velodyne_points/filtered"/>
         <!--<remap from="cloud_in" to="/velodyne_points/floor_removed"/>-->
         <!--<remap from="cloud_in" to="/mid/points"/>--> <!-- From where I take the input pointCloud -->
-        <remap from="scan" to="/laser_scan/data"/> <!-- Where do we publish our LaserScan data (the one converted from the PointCloud)-->
+        <remap from="scan" to="/scan"/> <!-- Where do we publish our LaserScan data (the one converted from the PointCloud)-->
         <rosparam>
             <!-- target_frame: frame from which the output data will be published -->
             transform_tolerance: 0.01 <!-- For error measurmenets -->

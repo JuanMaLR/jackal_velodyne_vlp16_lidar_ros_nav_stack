@@ -1,0 +1,7 @@
+<launch>
+    <!--- Run gmapping -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/nav_stack/gmapping.launch" />
+
+    <!--- Run Move Base -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/nav_stack/odom_navigation.launch" />
+</launch>
