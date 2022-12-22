@@ -25,11 +25,14 @@
   <include file="$(find jackal_tools)/launch/control_withgps.launch" />
   <include file="$(find jackal_tools)/launch/control_twoodomsources.launch" />
   -->
-  <include file="$(find jackal_control)/launch/control.launch" />
-  
-  <include file="$(find jackal_control)/launch/teleop.launch">
+  <!-- If required, they can be uncommented, but the twist mux library must
+  be implemented, because multiple cmd_vel sources will be activated and if
+  not correctly multiplexed, the robot will move oddly (like breaking after each move)-->
+  <!--<include file="$(find jackal_control)/launch/teleop.launch">
     <arg name="joystick" value="false"/>
-  </include>
+  </include>-->
+
+  <include file="$(find jackal_control)/launch/control.launch" />
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
