@@ -4,9 +4,24 @@
 - ROS Noetic
 
 # Description
-The robot will use a 3D LiDAR to generate the map of the environmet by:
-- Using the pcl library to downsample and select the relevant points of the PointCloud2.
-- Converting the PointCloud2 into LaserScan data using the pointcloud_to_laserscan library.
-- Using the ROS Navigation Stack to perform Path Planning and object avoidance using a Jackal ClearPath Robotics robot. 
+The jackal robot will use a 3D LiDAR (Velodyne VLP16) to navigate autonomously. 
+In order to accomplish this, the next steps are taken:
+- Read a PointCloud2 using a 3D LiDAR placed in the center of the robot. 
+- Use the PCL library to eliminate all the irrelevant data for the navigation like the ground or points that are higher than the robots height. 
+- Use the PCL library to downsample the PointCloud2 in order to increase performance.
+- Convert the PointCloud2 into LaserScan data using the pointcloud_to_laserscan library.
+- Create a map of the environment using gmapping from ROS navigation Stack. 
+- Navigate autonomously using both local (for obstacle avoidance) and global (for path planning) costmaps using ROS Navigation Stack. 
 
-The project will include a maze simulation and the real world scenario will be a greenhouse with a maze-like structure. 
+The project will include a maze simulation and a real world scenario greenhouse with a maze-like structure. 
+
+# Instructions 
+In order to run the simulation, execute the following launch file: 
+```
+roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack simulation.launch
+```
+
+The simulation includes already the map of the maze and will launch Gazebo, RViz (with a predefined configuration) and many other nodes including the ROS Navigation Stack.
+So, using Rviz the user should first indicate the intial pose of the robot and then indicate a goal pose and the robot will start navigating autonomously. 
+
+If the user whishes to create the map by themselves, comments in the code will indicate how to do this. 
