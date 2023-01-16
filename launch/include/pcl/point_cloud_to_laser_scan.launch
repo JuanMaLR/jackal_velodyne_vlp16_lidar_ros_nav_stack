@@ -1,8 +1,7 @@
+<!-- To convert from 3D to 2D LiDAR readings -->
 <launch>
     <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
         <remap from="cloud_in" to="/velodyne_points/filtered"/>
-        <!--<remap from="cloud_in" to="/velodyne_points/floor_removed"/>-->
-        <!--<remap from="cloud_in" to="/mid/points"/>--> <!-- From where I take the input pointCloud -->
         <remap from="scan" to="/scan"/> <!-- Where do we publish our LaserScan data (the one converted from the PointCloud)-->
         <rosparam>
             <!-- target_frame: frame from which the output data will be published -->

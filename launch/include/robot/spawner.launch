@@ -1,0 +1,9 @@
+<!-- Robot spawner launch file -->
+<launch>
+    <!-- Read URDF/XACRO files, load robot params and publish robot state information (fixed TF transforms) -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/robot/description.launch"/>
+
+    <!-- Spawn Jackal -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1.0" />
+</launch>

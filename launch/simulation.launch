@@ -1,24 +1,27 @@
+<!-- Main launch file for simulation -->
 <launch>
     
     <!-- Launching gazebo maze simulation -->
     <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/gazebo_launch.launch"/> 
 
+    <!-- Launch robot spawning -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/robot/spawner.launch"/> 
+
+    <!-- Launch robot control complete TF tree -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/robot/control.launch"/>
+
     <!-- Launching Rviz with mapping configuration (only uncomment when 
     creating the map of the environment) -->
-    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz_launch.launch"/>-->
+    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz/rviz_launch.launch"/>-->
 
     <!-- Launching Rviz with navigation visualization -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz_launch_nav.launch"/> 
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz/rviz_launch_nav.launch"/> 
 
-    <!-- Launching PCL nodes for PointCloud downsampling -->
-    <!-- First, floor is removed because it's irrelevant (deprecated, done in next step) -->
-    <!--<node type="floor_removal" name="floor_removal" pkg="jackal_velodyne_vlp16_lidar_ros_nav_stack"/>-->
-
-    <!-- Second, the PointCloud2 data is segmented (floor removed) and downsampled -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/filtering_downsample.launch"/>
+    <!-- Launching PCL nodes for PointCloud downsampling and dimension reduction -->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/pcl/filtering_downsample.launch"/>
 
     <!-- Launching PointCloud to LaserScan conversion node -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/point_cloud_to_laser_scan.launch"/>
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/pcl/point_cloud_to_laser_scan.launch"/>
 
     <!-- Launching ROS Navigation Stack nodes -->
     <!-- Launch gmapping node and move base to generate map of environment -->

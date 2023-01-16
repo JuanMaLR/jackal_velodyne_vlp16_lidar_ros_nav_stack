@@ -1,3 +1,4 @@
+<!-- Load robot_description to ros parameter server and create TF tree from xacro/urdf file -->
 <launch>
   <!-- Type of Jackal simulation configuration you need -->
   <arg name="config" default="lidar3d" />
@@ -7,5 +8,8 @@
                     $(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/urdf/configs/$(arg config)
                     $(find xacro)/xacro $(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/urdf/jackal.urdf.xacro
                     " />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- Publish TF static transforms found in xacro/urdf file -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" 
+        respawn="false" output="screen"/>
 </launch>

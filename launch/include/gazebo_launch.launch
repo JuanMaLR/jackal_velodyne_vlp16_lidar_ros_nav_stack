@@ -1,11 +1,11 @@
+<!-- Gazebo launch file -->
 <launch>
+  <!-- Variables/arguments default declaration (used if not defined in shell when launching) -->
   <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
   <arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/jackal_race.world" />
   <arg name="robot_configuration" default="complete" />
-
-  <!--<arg name="config" default="complete" />-->
 
   <!-- Launch Gazebo with the specified world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -16,25 +16,4 @@
     <arg name="world_name" value="$(arg world_name)" />
   </include>
 
-  <!-- Load Jackal's description, controllers, and teleop nodes. -->
-  <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/description.launch"/>
-    <!--<arg name="config" value="$(arg config)" />
-  </include>-->
-  <!--
-  <include file="$(find jackal_control)/launch/control.launch" />
-  <include file="$(find jackal_tools)/launch/control_withgps.launch" />
-  <include file="$(find jackal_tools)/launch/control_twoodomsources.launch" />
-  -->
-  <!-- If required, they can be uncommented, but the twist mux library must
-  be implemented, because multiple cmd_vel sources will be activated and if
-  not correctly multiplexed, the robot will move oddly (like breaking after each move)-->
-  <!--<include file="$(find jackal_control)/launch/teleop.launch">
-    <arg name="joystick" value="false"/>
-  </include>-->
-
-  <include file="$(find jackal_control)/launch/control.launch" />
-
-  <!-- Spawn Jackal -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1.0" />
 </launch>

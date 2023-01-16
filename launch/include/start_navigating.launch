@@ -1,3 +1,4 @@
+<!-- Launch ROS navigation stack to start navigating using the previously created map -->
 <launch>
 
     <!-- Run the map server -->
@@ -5,9 +6,9 @@
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
     
     <!--- Run AMCL -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/nav_stack/amcl.launch"/>
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/nav_stack/amcl.launch"/>
     
     <!--- Run Move Base -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/nav_stack/with_map_move_base.launch"/>
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/nav_stack/with_map_move_base.launch"/>
 
 </launch>

@@ -1,3 +1,4 @@
+<!-- Launch RVIZ mapping configuration -->
 <launch>
     <param name="use_gui" value="true"/>
     <arg name="config" default="no_map_config"/>
