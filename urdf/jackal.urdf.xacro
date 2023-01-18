@@ -69,6 +69,7 @@
       </joint>
       <actuator name="${prefix}_actuator">
         <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
       </actuator>
     </transmission>
   </xacro:macro>
@@ -188,12 +189,12 @@
   </joint>
 
   <!-- Bring in simulation data for Gazebo. -->
-  <xacro:include filename="$(find jackal_description)/urdf/jackal.gazebo" />
+  <xacro:include filename="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/urdf/jackal.gazebo" />
 
   <!-- Optional standard accessories, including their simulation data. The rendering
        of these into the final description is controlled by optenv variables, which
        default each one to off.-->
-  <xacro:include filename="$(find jackal_description)/urdf/accessories.urdf.xacro" />
+  <xacro:include filename="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/urdf/accessories.urdf.xacro" />
 
   <!-- Optional custom includes. -->
   <xacro:if value="$(optenv JACKAL_URDF_EXTRAS 0)">
