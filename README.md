@@ -32,3 +32,7 @@ The simulation includes already the map of the maze and will launch Gazebo, RViz
 So, using Rviz the user should first indicate the intial pose of the robot and then indicate a goal pose and the robot will start navigating autonomously. 
 
 If the user whishes to create the map by themselves, comments in the code will indicate how to do this. 
+
+# Demonstration and explanation
+Please refer to the following video to check a brief explanation of the project as well as a demonstration.
+[Project](https://youtu.be/mxL48slc6j4)
