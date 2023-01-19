@@ -142,7 +142,7 @@ add_definitions(${PCL_DEFINITIONS})
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/jackal_velodyne_vlp16_lidar_ros_nav_stack_node.cpp)
-add_executable(floor_removal src/floor_removal.cpp)
+#add_executable(floor_removal src/floor_removal.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -158,7 +158,7 @@ add_executable(floor_removal src/floor_removal.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(floor_removal ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+#target_link_libraries(floor_removal ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 #############
 ## Install ##
