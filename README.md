@@ -15,6 +15,13 @@ In order to accomplish this, the next steps are taken:
 
 The project will include a maze simulation and a real world scenario greenhouse with a maze-like structure. 
 
+# Installation
+To download and be able to execute this project: 
+- Clone this project
+- Run ``` catkin_make ``` to compile
+- Install any missing dependencies ``` rosdep install --from-paths src --ignore-src --rosdistro=$ROS_DISTRO -y ```
+- Install Jackal packages ``` sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop ros-noetic-jackal-navigation ```
+
 # Instructions 
 In order to run the simulation, execute the following launch file: 
 ```
