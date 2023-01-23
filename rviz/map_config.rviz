@@ -6,6 +6,12 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Global Markers1
+        - /Local Markers1
+        - /LiDAR Markers1
+        - /Frame Markers1
+        - /Robot Markers1
+        - /Pose Markers1
       Splitter Ratio: 0.5
     Tree Height: 719
   - Class: rviz/Selection
@@ -25,7 +31,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: LiDAR 2D
+    SyncSource: LiDAR 3D
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -51,394 +57,418 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Global Plan
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /move_base/NavfnROS/plan
+          Unreliable: false
+          Value: true
+        - Alpha: 0.699999988079071
+          Class: rviz/Map
+          Color Scheme: costmap
+          Draw Behind: false
+          Enabled: true
+          Name: Global Map
+          Topic: /move_base/global_costmap/costmap
+          Unreliable: false
+          Use Timestamp: false
+          Value: true
       Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: ""
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        chassis_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
+      Name: Global Markers
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.699999988079071
+          Class: rviz/Map
+          Color Scheme: costmap
+          Draw Behind: false
+          Enabled: true
+          Name: Local Map
+          Topic: /move_base/local_costmap/costmap
+          Unreliable: false
+          Use Timestamp: false
           Value: true
-        fenders_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 52; 101; 164
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Local Plan
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /move_base/TrajectoryPlannerROS/local_plan
+          Unreliable: false
           Value: true
-        front_left_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        mid_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        mid_vlp16_leg1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_leg2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_leg3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_leg4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        mid_vlp16_plate:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        navsat_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_left_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rear_right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        velodyne:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        velodyne_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
-      Update Interval: 0
-      Value: true
-      Visual Enabled: true
-    - Alpha: 1
-      Class: rviz/Axes
       Enabled: true
-      Length: 0.5
-      Name: Map Frame
-      Radius: 0.10000000149011612
-      Reference Frame: map
-      Show Trail: false
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/LaserScan
-      Color: 239; 41; 41
-      Color Transformer: FlatColor
-      Decay Time: 0
+      Name: Local Markers
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/LaserScan
+          Color: 239; 41; 41
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: LiDAR 2D
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.05000000074505806
+          Style: Flat Squares
+          Topic: /scan
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: LiDAR 3D
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Flat Squares
+          Topic: /velodyne_points/filtered
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
       Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Min Color: 0; 0; 0
-      Name: LiDAR 2D
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.05000000074505806
-      Style: Flat Squares
-      Topic: /scan
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Alpha: 1
-      Buffer Length: 1
-      Class: rviz/Path
-      Color: 25; 255; 0
-      Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Lines
-      Line Width: 0.029999999329447746
-      Name: Global Plan
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Queue Size: 10
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic: /move_base/NavfnROS/plan
-      Unreliable: false
-      Value: true
-    - Alpha: 1
-      Buffer Length: 1
-      Class: rviz/Path
-      Color: 52; 101; 164
-      Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Lines
-      Line Width: 0.029999999329447746
-      Name: Local Plan
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Queue Size: 10
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic: /move_base/TrajectoryPlannerROS/local_plan
-      Unreliable: false
-      Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: costmap
-      Draw Behind: false
-      Enabled: true
-      Name: Global Map
-      Topic: /move_base/global_costmap/costmap
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: costmap
-      Draw Behind: false
-      Enabled: true
-      Name: Local Map
-      Topic: /move_base/local_costmap/costmap
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
-    - Alpha: 1
-      Axes Length: 1
-      Axes Radius: 0.10000000149011612
-      Class: rviz/Pose
-      Color: 255; 25; 0
-      Enabled: true
-      Head Length: 0.30000001192092896
-      Head Radius: 0.10000000149011612
-      Name: Goal Pose
-      Queue Size: 10
-      Shaft Length: 1
-      Shaft Radius: 0.05000000074505806
-      Shape: Arrow
-      Topic: /move_base_simple/goal
-      Unreliable: false
-      Value: true
-    - Alpha: 1
-      Class: rviz/Polygon
-      Color: 25; 255; 0
-      Enabled: true
-      Name: Robot Footprint
-      Queue Size: 10
-      Topic: /move_base/local_costmap/footprint
-      Unreliable: false
-      Value: true
-    - Class: rviz/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        base_link:
+      Name: LiDAR Markers
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/Axes
+          Enabled: true
+          Length: 0.5
+          Name: Map Frame
+          Radius: 0.10000000149011612
+          Reference Frame: map
+          Show Trail: false
           Value: true
-        chassis_link:
-          Value: true
-        fenders_link:
-          Value: true
-        front_left_wheel_link:
-          Value: true
-        front_mount:
-          Value: true
-        front_right_wheel_link:
-          Value: true
-        imu_link:
-          Value: true
-        map:
-          Value: true
-        mid_mount:
-          Value: true
-        mid_vlp16_leg1:
-          Value: true
-        mid_vlp16_leg2:
-          Value: true
-        mid_vlp16_leg3:
-          Value: true
-        mid_vlp16_leg4:
-          Value: true
-        mid_vlp16_mount:
-          Value: true
-        mid_vlp16_plate:
-          Value: true
-        navsat_link:
-          Value: true
-        odom:
-          Value: true
-        rear_left_wheel_link:
-          Value: true
-        rear_mount:
-          Value: true
-        rear_right_wheel_link:
-          Value: true
-        velodyne:
-          Value: true
-        velodyne_base_link:
-          Value: true
-      Marker Alpha: 1
-      Marker Scale: 1
-      Name: TFs
-      Show Arrows: true
-      Show Axes: true
-      Show Names: false
-      Tree:
-        map:
-          odom:
+        - Class: rviz/TF
+          Enabled: true
+          Frame Timeout: 15
+          Frames:
+            All Enabled: true
             base_link:
-              chassis_link:
-                fenders_link:
-                  {}
-                front_left_wheel_link:
-                  {}
-                front_right_wheel_link:
-                  {}
-                imu_link:
-                  {}
-                mid_mount:
-                  front_mount:
-                    {}
-                  mid_vlp16_mount:
-                    mid_vlp16_leg1:
+              Value: true
+            chassis_link:
+              Value: true
+            fenders_link:
+              Value: true
+            front_left_wheel_link:
+              Value: true
+            front_mount:
+              Value: true
+            front_right_wheel_link:
+              Value: true
+            imu_link:
+              Value: true
+            map:
+              Value: true
+            mid_mount:
+              Value: true
+            mid_vlp16_leg1:
+              Value: true
+            mid_vlp16_leg2:
+              Value: true
+            mid_vlp16_leg3:
+              Value: true
+            mid_vlp16_leg4:
+              Value: true
+            mid_vlp16_mount:
+              Value: true
+            mid_vlp16_plate:
+              Value: true
+            navsat_link:
+              Value: true
+            odom:
+              Value: true
+            rear_left_wheel_link:
+              Value: true
+            rear_mount:
+              Value: true
+            rear_right_wheel_link:
+              Value: true
+            velodyne:
+              Value: true
+            velodyne_base_link:
+              Value: true
+          Marker Alpha: 1
+          Marker Scale: 1
+          Name: TFs
+          Show Arrows: true
+          Show Axes: true
+          Show Names: false
+          Tree:
+            map:
+              odom:
+                base_link:
+                  chassis_link:
+                    fenders_link:
                       {}
-                    mid_vlp16_leg2:
+                    front_left_wheel_link:
                       {}
-                    mid_vlp16_leg3:
+                    front_right_wheel_link:
                       {}
-                    mid_vlp16_leg4:
+                    imu_link:
                       {}
-                    mid_vlp16_plate:
-                      velodyne_base_link:
-                        velodyne:
+                    mid_mount:
+                      front_mount:
+                        {}
+                      mid_vlp16_mount:
+                        mid_vlp16_leg1:
                           {}
-                  rear_mount:
-                    {}
-                navsat_link:
-                  {}
-                rear_left_wheel_link:
-                  {}
-                rear_right_wheel_link:
-                  {}
-      Update Interval: 0
-      Value: true
-    - Alpha: 1
-      Arrow Length: 0.30000001192092896
-      Axes Length: 0.30000001192092896
-      Axes Radius: 0.009999999776482582
-      Class: rviz/PoseArray
-      Color: 255; 25; 0
+                        mid_vlp16_leg2:
+                          {}
+                        mid_vlp16_leg3:
+                          {}
+                        mid_vlp16_leg4:
+                          {}
+                        mid_vlp16_plate:
+                          velodyne_base_link:
+                            velodyne:
+                              {}
+                      rear_mount:
+                        {}
+                    navsat_link:
+                      {}
+                    rear_left_wheel_link:
+                      {}
+                    rear_right_wheel_link:
+                      {}
+          Update Interval: 0
+          Value: true
       Enabled: true
-      Head Length: 0.07000000029802322
-      Head Radius: 0.029999999329447746
-      Name: PoseArray
-      Queue Size: 10
-      Shaft Length: 0.23000000417232513
-      Shaft Radius: 0.009999999776482582
-      Shape: Arrow (Flat)
-      Topic: /particlecloud
-      Unreliable: false
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
+      Name: Frame Markers
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: ""
+            base_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            chassis_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            fenders_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            front_left_wheel_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            front_mount:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            front_right_wheel_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            imu_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            mid_mount:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            mid_vlp16_leg1:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            mid_vlp16_leg2:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            mid_vlp16_leg3:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            mid_vlp16_leg4:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            mid_vlp16_mount:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            mid_vlp16_plate:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            navsat_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            rear_left_wheel_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            rear_mount:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            rear_right_wheel_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            velodyne:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            velodyne_base_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: RobotModel
+          Robot Description: robot_description
+          TF Prefix: ""
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/Polygon
+          Color: 25; 255; 0
+          Enabled: true
+          Name: Robot Footprint
+          Queue Size: 10
+          Topic: /move_base/local_costmap/footprint
+          Unreliable: false
+          Value: true
+        - Class: rviz/InteractiveMarkers
+          Enable Transparency: true
+          Enabled: true
+          Name: InteractiveMarkers
+          Show Axes: false
+          Show Descriptions: true
+          Show Visual Aids: false
+          Update Topic: /twist_marker_server/update
+          Value: true
       Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Min Color: 0; 0; 0
-      Name: LiDAR 3D
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic: /velodyne_points/filtered
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Class: rviz/InteractiveMarkers
-      Enable Transparency: true
+      Name: Robot Markers
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Arrow Length: 0.30000001192092896
+          Axes Length: 0.30000001192092896
+          Axes Radius: 0.009999999776482582
+          Class: rviz/PoseArray
+          Color: 255; 25; 0
+          Enabled: true
+          Head Length: 0.07000000029802322
+          Head Radius: 0.029999999329447746
+          Name: PoseArray
+          Queue Size: 10
+          Shaft Length: 0.23000000417232513
+          Shaft Radius: 0.009999999776482582
+          Shape: Arrow (Flat)
+          Topic: /particlecloud
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: true
+          Head Length: 0.30000001192092896
+          Head Radius: 0.10000000149011612
+          Name: Goal Pose
+          Queue Size: 10
+          Shaft Length: 1
+          Shaft Radius: 0.05000000074505806
+          Shape: Arrow
+          Topic: /move_base_simple/goal
+          Unreliable: false
+          Value: true
       Enabled: true
-      Name: InteractiveMarkers
-      Show Axes: false
-      Show Descriptions: true
-      Show Visual Aids: false
-      Update Topic: /twist_marker_server/update
-      Value: true
+      Name: Pose Markers
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -467,7 +497,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.2582550048828125
+      Distance: 12.382316589355469
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
