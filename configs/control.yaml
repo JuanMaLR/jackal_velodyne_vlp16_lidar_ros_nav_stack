@@ -53,6 +53,8 @@ jackal_velocity_controller:
   wheel_separation_multiplier: 1.5 # default: 1.0
   wheel_radius_multiplier    : 1.0 # default: 1.0
 
+  allow_multiple_cmd_vel_publishers: True #Because of twist_markers and move_base
+
   # Velocity and acceleration limits
   # Whenever a min_* is unspecified, default to -max_*
   linear:
