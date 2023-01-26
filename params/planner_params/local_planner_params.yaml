@@ -14,10 +14,10 @@ TrajectoryPlannerROS:
   acc_lim_theta: 20.0 #Default: 3.2 (0 - 20 range)
 
   #Maximum forward (in x axis) velocity for robot in m/s
-  #max_vel_x: 0.5 #Default: 0.5 (0 - 20 range)
+  max_vel_x: 0.5 #Default: 0.5 (0 - 20 range)
   #Minimum forward (in x axis) velocity for robot in m/s
   #Must be high enough to overcome friction
-  #min_vel_x: 0.1 #Default: 0.1 (0 - 20 range)
+  min_vel_x: 0.1 #Default: 0.1 (0 - 20 range)
 
   #Maximum rotation velocity for robot base in rad/s
   max_vel_theta: 1.57 #Default: 1.0 (0 - 20 range)
@@ -50,35 +50,37 @@ TrajectoryPlannerROS:
   #Weighting for how much the robot should try to stay close to the path generated
   path_distance_bias: 0.75 #Default: 0.6 (0 - 5 range)
   #Deprecated
-  #gdist_scale: 1.0 #   
+  gdist_scale: 1.0 #Default: 1.0
   #Weighting for how much the robot should try to reach the local goal
   #Also controls speed
   goal_distance_bias: 1.0 #Default: 0.8 (0 - 5 range) 
   #The weighting for how much the controller should attempt to avoid obstacles
   occdist_scale: 0.1 #Default: 0.01
   #How far to look ahead in meters diferentiating between different rotational velocities
-  #heading_lookahead: 0.325 #Default: 0.325
+  heading_lookahead: 0.325 #Default: 0.325
   #Whether to score based on the robot's heading to the path or its distance from the path. default false  
-  #heading_scoring: false #Default: false
+  heading_scoring: false #Default: false
   #How far to look ahead in time in seconds along the simulated trajectory when using heading scoring (double, default: 0.8)
-  #heading_scoring_timestep: 0.8 #Default: 0.8
+  heading_scoring_timestep: 0.8 #Default: 0.8
   #Whether to use the Dynamic Window Approach (DWA) or whether to use Trajectory Rollout
-  #dwa: true #Default: true
+  dwa: true #Default: true
   #If true a topic <name>/cost_cloud will be enabled with a sensor_msg/PointCloud2 message with the 
   #costgrid planner data
   publish_cost_grid_pc: true #Default: false
   #Used by cost_cloud topic, must be same as with local costmap frame 
   #global_frame_id: odom #Default: odom
+  #If true allow simple_attraction instead of intelligent cost propagation
+  simple_attractor: false
 
   ## Oscillation Prevention Parameters
   #How far the robot must travel in meters before oscillation flags are reset
-  #oscillation_reset_dist: 0.05 #Default: 0.05 
+  oscillation_reset_dist: 0.05 #Default: 0.05 
 
   ## Forward Simulation Parameters 2
   #Number of samples to use when exploring x velocity space
   vx_samples: 6 #Default: 3 
   #Number of samples to use when exploring theta velocity space
-  #vtheta_samples: 20 #Default: 20
+  vtheta_samples: 20 #Default: 20
   #If declared in move_base no need to redeclare here
   #controller_frequency: 20 #Default: 20  
 
@@ -89,7 +91,7 @@ TrajectoryPlannerROS:
   xy_goal_tolerance: 0.25 #Default: 0.10 
   #If true, then the robot will rotate in place once it reaches its goal and might
   #go out of the goal tolerance
-  #latch_xy_goal_tolerance: false #Default: false
+  latch_xy_goal_tolerance: false #Default: false
 
   ##Global Plan Parameters
   #Drops plan points after the robot passed them (1 meter away) to save computational resources

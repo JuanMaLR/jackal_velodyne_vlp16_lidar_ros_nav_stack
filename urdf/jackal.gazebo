@@ -8,6 +8,7 @@
     </plugin>
   </gazebo>
 
+  <!-- Not required unless I activate the EKF node for improved odometry
   <gazebo>
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
       <robotNamespace>/</robotNamespace>
@@ -37,7 +38,7 @@
       <referenceAltitude>0</referenceAltitude>
       <drift>0.0001 0.0001 0.0001</drift>
     </plugin>
-  </gazebo>
+  </gazebo>-->
 
   <gazebo reference="base_link">
     <turnGravityOff>false</turnGravityOff>
