@@ -2,7 +2,7 @@
 <launch>
   <!-- Variables/arguments default declaration (used if not defined in shell when launching) -->
   <arg name="use_sim_time" default="true" />
-  <arg name="gui" default="true" />
+  <arg name="gui" default="false" />
   <arg name="headless" default="false" />
   <arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/jackal_race.world" />
   <arg name="robot_configuration" default="complete" />

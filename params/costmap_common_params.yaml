@@ -26,6 +26,9 @@ footprint_padding: 0.1
 #Obstacle layer is different in global (costmap_2d::VoxelLayer) 
 #than local (costmap_2d::ObstacleLayer)
 #And static is only used in global costmap
+plugins:
+  - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+  - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
 #In charge of marking and clearing operations
 obstacles_layer:

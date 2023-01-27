@@ -34,7 +34,7 @@ jackal_velocity_controller:
   #xacro urdf/jackal.urdf.xacro > jackal.urdf 
   #And check URDF file for joint names
   #Also, check that each of the joints has a transmission in the URDF file
-  publish_rate: 50
+  publish_rate: 10
   pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
   twist_covariance_diagonal: [0.001, 0.001, 0.001, 1000000.0, 1000000.0, 0.03]
   cmd_vel_timeout: 0.25

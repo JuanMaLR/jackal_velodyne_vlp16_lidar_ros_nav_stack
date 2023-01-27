@@ -1,5 +1,5 @@
 #Shutdown costmaps when the move_base node is inactive
-#shutdown_costmaps: false #Default behaivor is false, no need to specify again
+shutdown_costmaps: false #Default behaivor is false, no need to specify again
 
 #Rate at which to run control loop and send cmd_vel topic commands
 controller_frequency: 20.0 #Default behaivor is 20, no need to specify again

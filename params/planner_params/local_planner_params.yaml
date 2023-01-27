@@ -50,7 +50,7 @@ TrajectoryPlannerROS:
   #Weighting for how much the robot should try to stay close to the path generated
   path_distance_bias: 0.75 #Default: 0.6 (0 - 5 range)
   #Deprecated
-  gdist_scale: 1.0 #Default: 1.0
+  #gdist_scale: 1.0 #Default: 1.0
   #Weighting for how much the robot should try to reach the local goal
   #Also controls speed
   goal_distance_bias: 1.0 #Default: 0.8 (0 - 5 range) 
