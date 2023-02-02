@@ -31,6 +31,23 @@ roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack simulation.launch
 The simulation includes already the map of the maze and will launch Gazebo, RViz (with a predefined configuration) and many other nodes including the ROS Navigation Stack.
 So, using Rviz the user should first indicate the intial pose of the robot and then indicate a goal pose and the robot will start navigating autonomously. 
 
+In order to run the real robot project, execute the following launch files: 
+- In jackal on-board computer (Required SSH connection):
+```
+roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_robot.launch
+```
+Remember to add in the robot configuration file the ROS_HOSTNAME variable
+
+- On ground computer: 
+```
+export ROS_MASTER_URI=http://ip:port
+export ROS_HOSTNAME=robot_name
+roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc.launch
+```
+
+For more instructions on how to configure this connection check: [jackal_site](https://www.clearpathrobotics.com/assets/guides/melodic/jackal/network.html)
+and [jackal_video](https://www.youtube.com/watch?v=U-YgKVRDc3w)
+
 If the user whishes to create the map by themselves, comments in the code will indicate how to do this. 
 
 # Demonstration and explanation
