@@ -29,7 +29,15 @@ roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack simulation.launch
 ```
 
 The simulation includes already the map of the maze and will launch Gazebo, RViz (with a predefined configuration) and many other nodes including the ROS Navigation Stack.
-So, using Rviz the user should first indicate the intial pose of the robot and then indicate a goal pose and the robot will start navigating autonomously. 
+
+If the user changes the gazebo simulated world a new map should be made. To do so:
+- Read simulation.launch file and toggle comments to match the mapping feature. 
+- Use the interactive markers (or any other alternative like twist teleop) to move the robot and create a map of the environment (be careful of speed, if robot goes too fast the map might get distorted). 
+- Once the map is completed save the map in the corresponding folder using the following commands on a new terminal: ``` rosrun map_server map_saver -f mymap ```. Where mymap can be any name you choose for your map.
+- Wait for map to be saved and terminate execution. 
+- Restore navigation launch files in simulation.launch.  
+
+Once the map is ready and the simulation.launch file has been changed accordingly, running the simulation.launch file should open Rviz where the user should first indicate the intial pose of the robot and then indicate a goal pose so the robot starts navigating autonomously. 
 
 In order to run the real robot project, execute the following launch files: 
 - In jackal on-board computer (Required SSH connection):
@@ -48,8 +56,14 @@ roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc.launch
 For more instructions on how to configure this connection check: [jackal_site](https://www.clearpathrobotics.com/assets/guides/melodic/jackal/network.html)
 and [jackal_video](https://www.youtube.com/watch?v=U-YgKVRDc3w)
 
-If the user whishes to create the map by themselves, comments in the code will indicate how to do this. 
-
 # Demonstration and explanation
 Please refer to the following video to check a brief explanation of the project as well as a demonstration.
 [Project](https://youtu.be/mxL48slc6j4)
+
+# Special considerations
+
+If the simulation is failing or it's too slow it might be due to Gazebo version. To fix that, run the following commands so you're sure you have the latest stable Gazebo version running:
+    sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+    wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+    sudo apt update
+    sudo apt upgrade
