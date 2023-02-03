@@ -63,7 +63,7 @@ Please refer to the following video to check a brief explanation of the project 
 # Special considerations
 
 If the simulation is failing or it's too slow it might be due to Gazebo version. To fix that, run the following commands so you're sure you have the latest stable Gazebo version running:
-    sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-    wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-    sudo apt update
-    sudo apt upgrade
+``` sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable \`lsb_release -cs\` main" > /etc/apt/sources.list.d/gazebo-stable.list' ```
+``` wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add - ```
+``` sudo apt update ```
+``` sudo apt upgrade ```
