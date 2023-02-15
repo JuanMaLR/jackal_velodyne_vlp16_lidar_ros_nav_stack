@@ -58,6 +58,21 @@ export ROS_HOSTNAME=robot_name
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc.launch
 ```
 
+To launch the 2D LiDAR code just run:
+- In jackal on-board computer (Required SSH connection):
+```
+roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_robot2d.launch
+```
+Remember to add in the robot configuration file the ROS_HOSTNAME variable
+
+- On ground computer: 
+```
+export ROS_MASTER_URI=http://ip:port
+export ROS_HOSTNAME=robot_name
+roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc_2d.launch
+```
+
+
 For more instructions on how to configure this connection check: [jackal_site](https://www.clearpathrobotics.com/assets/guides/melodic/jackal/network.html)
 and [jackal_video](https://www.youtube.com/watch?v=U-YgKVRDc3w)
 
