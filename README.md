@@ -1,4 +1,4 @@
-## Jackal Velodyne VLP16 3D LiDAR ROS Navigation Stack
+## Jackal Velodyne VLP16 3D LiDAR vs 2D LiDAR ROS Navigation Stack
 
 # General characteristics
 - ROS Noetic
@@ -38,6 +38,11 @@ If the user changes the gazebo simulated world a new map should be made. To do s
 - Restore navigation launch files in simulation.launch.  
 
 Once the map is ready and the simulation.launch file has been changed accordingly, running the simulation.launch file should open Rviz where the user should first indicate the intial pose of the robot and then indicate a goal pose so the robot starts navigating autonomously. 
+
+If the user wants to run the simulation using a 2D LiDAR execute the following launch file: 
+```
+roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack simulation2d.launch
+```
 
 In order to run the real robot project, execute the following launch files: 
 - In jackal on-board computer (Required SSH connection):
