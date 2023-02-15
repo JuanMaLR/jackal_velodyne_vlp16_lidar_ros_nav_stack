@@ -1,0 +1,6 @@
+<!-- Launch RVIZ navigating configuration -->
+<launch>
+    <param name="use_gui" value="true"/>
+    <arg name="config" default="map_config_2d"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/rviz/$(arg config).rviz"/>
+</launch>
