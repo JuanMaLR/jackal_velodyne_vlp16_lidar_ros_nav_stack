@@ -2,6 +2,8 @@
 <launch>
   <!-- Type of Jackal simulation configuration you need -->
   <arg name="config" default="lidar3d" />
+  <!-- To find more config files to spawn jackal refer to jackal_description github 
+  package: https://github.com/jackal/jackal/blob/noetic-devel/jackal_description/urdf/configs -->
 
   <param name="robot_description"
          command="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/src/env_run

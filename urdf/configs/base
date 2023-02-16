@@ -1,4 +1,5 @@
-# The base Jackal configuration has no accessories at all,
-# so nothing need be specified here; the defaults as given
-# in the URDF suffice to define this config.
+# The front_laser configuration of Jackal is sufficient for
+# basic gmapping and navigation. It is mostly the default
+# config, but with a SICK LMS100 series LIDAR on the front,
+# pointing forward.
 JACKAL_LASER=1
