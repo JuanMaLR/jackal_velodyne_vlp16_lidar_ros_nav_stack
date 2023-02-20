@@ -1,0 +1,15 @@
+Steps for launching 2D LiDAR on ROS (RPLiDAR A3 from SLAMTEC):
+1.- Go to your src folder: cd catkin_ws/src
+2.- Clone slamtec repo: git clone https://github.com/Slamtec/rplidar_ros
+3.- Return to src folder: cd ..
+4.- Source workspace: source ~/catkin_ws/devel/setup.bash
+5.- Build the repo: catkin_make --only-pkg-with-deps rplidar_ros
+6.- Connect using the USB cable your 2D LiDAR to your computer (only 1 cable needed, no need for the second one for power).
+7.- Check to see that the device is recognized by your computer: lsusb 
+	7a. In my case the device name was: Bus 003 Device 006: ID 10c4:ea60 Silicon Labs CP210x UART Bridge
+8.- If the device appears set permisions to 777 on your USB port: sudo chmod 777 /dev/ttyUSB0
+9.- Launch the rplidar_a3 launch file from the repo: roslaunch rplidar_ros view_rplidar_a3.launch
+10.- You should be able to visualize the scan topic in Rviz.
+	
+References: 
+https://aqureshi95.medium.com/operate-rplidar-a3-using-ros-d697f9990fc9

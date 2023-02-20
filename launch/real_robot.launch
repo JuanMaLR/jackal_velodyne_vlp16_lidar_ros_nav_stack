@@ -1,10 +1,14 @@
 <!-- Main launch file for real robot (launch in jackal computer) -->
 <launch>
 
+    <!-- Launch 3D LiDAR to create /velodyne_points topic. Add a remap so 
+    the topic name matches the one referred to on filtering_downsample.launch -->
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch.launch">
+      <remap from="/velodyne_points" to="/mid/points"/>
+    </include>
+
     <!-- Launching PCL nodes for PointCloud downsampling and dimension reduction -->
     <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/pcl/filtering_downsample.launch"/>
-
-    <!-- Might need to add a transformation from the base_link to 3D LiDAR -->
 
     <!-- Launching PointCloud to LaserScan conversion node -->
     <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/pcl/point_cloud_to_laser_scan.launch"/>

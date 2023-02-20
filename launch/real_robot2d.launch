@@ -1,8 +1,11 @@
 <!-- Main launch file for real robot (launch in jackal computer) with a 2D LiDAR -->
 <launch>
 
-    <!-- To use the same name as that of the 3D LiDAR -->
-    <remap from="/front/scan" to="/scan"/>
+    <!-- Launch 2D LiDAR to create /scan topic -->
+    <include file="$(find rplidar_ros)/launch/rplidar_a3.launch"/>
+
+    <!-- No need to remap since the LiDAR topic is already called scan -->
+    <!--<remap from="/front/scan" to="/scan"/>-->
 
     <!-- Launching ROS Navigation Stack nodes -->
     <!-- Launch gmapping node and move base to generate map of environment -->

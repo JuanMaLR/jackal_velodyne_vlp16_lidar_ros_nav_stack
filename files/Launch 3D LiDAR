@@ -1,0 +1,25 @@
+Steps for launching 3D LiDAR on ROS (VLP-16 from Velodyne):
+1.- Connect VLP16 LiDAR as explanined in the manual.
+	1a. Connect LiDAR to interface card. 
+	1b. Connect power plug to interface card.
+	1c. Connect power to main line
+	1d. Connect ethernet cable to interface card and computer
+2.- Execute: sudo ip addr add 192.168.3.100 dev enx58ef68e40185 (substitute this last name for your ethernet interface name). 
+	2a. Note: The command ip is new and is now the standard. If you're using ROS versions prior to noetic ifconfig is most likely the standard command for this so use: sudo ifconfig eht0 192.168.3.100
+	2b. Check references for pages where you can learn more about ip and ifconfig commands
+3.- After assigning an ip to the ethernet port you can now execute: roslaunch velodyne_pointcloud VLP16_points.launch
+	3a. To be able to do this you should have first installed ros dependencies for velodyne: sudo apt-get install ros-VERSION-velodyne
+	3b. And also you need to download the drivers from github: cd ~/catkin_ws/src/ && git clone https://github.com/ros-drivers/velodyne.git
+	3c. Go to catkin_ws and run: rosdep install --from-paths src --ignore-src --rosdistro YOURDISTRO -y
+	3d. Finally, build your project: cd ~/catkin_ws/ && catkin_make
+		3d1. If you have more projects and you don't want to compile them all, then use: catkin_make --only-pkg-with-deps velodyne
+4. This will generate a topic called: /velodyne_points
+	4a. To visualize the output run rviz: rosrun rviz rviz
+	4b. Select the fixed frame under global options to be velodyne
+	4c. Add a PointCloud2 visualization and select the topic to be /velodyne_points
+	
+References: 
+Ros offical website tutorial: http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16
+Youtube ROS VLP 3D LiDAR setup: https://www.youtube.com/watch?v=tbIi6HYNGtA
+ifconfig command: https://extassisnetwork.com/tutoriales/comando-ifconfig-de-linux/
+ip command: https://phoenixnap.com/kb/linux-ip-command-examples

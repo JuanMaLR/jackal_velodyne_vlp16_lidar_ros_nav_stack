@@ -72,9 +72,11 @@ export ROS_HOSTNAME=robot_name
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc_2d.launch
 ```
 
-
 For more instructions on how to configure this connection check: [jackal_site](https://www.clearpathrobotics.com/assets/guides/melodic/jackal/network.html)
 and [jackal_video](https://www.youtube.com/watch?v=U-YgKVRDc3w)
+
+# LiDAR's configurations
+Online documentation is a bit unclear, so under the files folder of this project two instruction manuals (one for 2D and other for 3D LiDAR) as txt files are included. 
 
 # Demonstration and explanation
 Please refer to the following video to check a brief explanation of the project as well as a demonstration.
