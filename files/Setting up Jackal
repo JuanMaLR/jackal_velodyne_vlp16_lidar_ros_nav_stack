@@ -24,4 +24,12 @@ From the center of the jackal to the 2D LiDAR center:
 - 16.5cm in positive x axis
 - 15cm in positive z axis
 
+Original frames in the jackal robot include a base_link, chassis_link, mid_mount and front_mount.
+base_link to chassis_link suffers no translation 
+chassis_link to mid_mount has a z translation of 0.184
+mid_mount to front_mount has an x translation of 0.120
+Then I can ignore the translation required for my 2D LiDAR
+
+rosrun tf2_tools view_frames.py
+
 Modificar los archivos del lidar 3D para que empiecen con el mapeo 
