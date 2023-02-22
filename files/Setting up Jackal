@@ -17,4 +17,11 @@ For my LiDAR project:
 2.- Under catkin_ws/src clone the github repository: git clone https://github.com/JuanMaLR/jackal_velodyne_vlp16_lidar_ros_nav_stack.git
 3.- Change directory to catkin_ws/
 4.- Compile the project: catkin_make --only-pkg-with-deps jackal_velodyne_vlp16_lidar_ros_nav_stack
-5.- 
+5.- Set the environment variables as specified in the repository readme.
+
+For static transform publisher:
+From the center of the jackal to the 2D LiDAR center:
+- 16.5cm in positive x axis
+- 15cm in positive z axis
+
+Modificar los archivos del lidar 3D para que empiecen con el mapeo 
