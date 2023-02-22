@@ -30,6 +30,8 @@ chassis_link to mid_mount has a z translation of 0.184
 mid_mount to front_mount has an x translation of 0.120
 Then I can ignore the translation required for my 2D LiDAR
 
+To visualize frames tree in the jackal:
 rosrun tf2_tools view_frames.py
+To copy the pdf into your computer do: scp administrator@192.168.0.102:frames.pdf . 
 
 Modificar los archivos del lidar 3D para que empiecen con el mapeo 

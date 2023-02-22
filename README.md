@@ -44,31 +44,43 @@ If the user wants to run the simulation using a 2D LiDAR execute the following l
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack simulation2d.launch
 ```
 
-In order to run the real robot project, execute the following launch files: 
-- In jackal on-board computer (Required SSH connection):
+In order to run the real robot project using 3D LiDAR:
+- First, connect to the robot following the steps specified inside the files/Setting up Jackal.txt file
+- Then, verify that the jackal has the following exports inside the .bashrc file on root:
+```
+export ROS_MASTER_URI=http://192.168.0.102:11311
+export ROS_HOSTNAME=192.168.0.102
+export ROS_IP=192.168.0.102
+```
+
+- Finally, on the jackal on-board computer execute:
 ```
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_robot.launch
 ```
-Remember to add in the robot configuration file the ROS_HOSTNAME variable
+This will start gmapping and move_base, as well as the lidar and the static transform for the lidar.
 
-- On ground computer: 
+To be able to visualize the robot, the topics, tf's, etc., use RVIZ on the ground computer. 
+- First, verify that on your .bashrc you have: 
 ```
-export ROS_MASTER_URI=http://ip:port
-export ROS_HOSTNAME=robot_name
+export ROS_MASTER_URI=http://192.168.0.102:11311
+export ROS_HOSTNAME=192.168.0.10
+export ROS_IP=192.168.0.10
+```
+
+Then, launch:
+```
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc.launch
 ```
 
-To launch the 2D LiDAR code just run:
-- In jackal on-board computer (Required SSH connection):
+
+To launch the 2D LiDAR version do the same steps as above, just modify the names:
+- In jackal on-board computer:
 ```
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_robot2d.launch
 ```
-Remember to add in the robot configuration file the ROS_HOSTNAME variable
 
 - On ground computer: 
 ```
-export ROS_MASTER_URI=http://ip:port
-export ROS_HOSTNAME=robot_name
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc_2d.launch
 ```
 
@@ -91,3 +103,5 @@ wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 sudo apt update 
 sudo apt upgrade
 ```
+
+To be able to compile the project in your jackal robot be sure to download pcl libraries as specified in the "For my LiDAR project" section in the files/Setting up Jackal.txt file
