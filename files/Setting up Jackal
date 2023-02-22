@@ -1,0 +1,20 @@
+How to connect your computer to the jackal robot via Wifi:
+1.- Connect to the power outlet the router and the profesor's computer.
+2.- Connect via ethernet the profesor's computer and the router. 
+	2a.- On the router connect to the internet port (blue one)
+3.- Turn on the jackal and wait for the wifi icon to turn green.
+4.- On your computer connect to the ROS_robot hotspot. The password is the same as the network name: ROS_robot
+5.- Ping the jackal NIC's: ping 192.168.0.102
+6.- If the pings were successful ssh into the jackal's computer using: ssh administrator@192.168.0.102
+	6a.- The password is clearpath
+7.- Update and upgrade the jackal ubuntu system: sudo apt-get update & upgrade
+8.- Do the configurations required for your project.
+
+For my LiDAR project:
+1.- Download the pcl libraries required for compilation:
+	1a. sudo apt-get install ros-noetic-pcl-conversions
+	1b. sudo apt-get install ros-noetic-pcl-ros
+2.- Under catkin_ws/src clone the github repository: git clone https://github.com/JuanMaLR/jackal_velodyne_vlp16_lidar_ros_nav_stack.git
+3.- Change directory to catkin_ws/
+4.- Compile the project: catkin_make --only-pkg-with-deps jackal_velodyne_vlp16_lidar_ros_nav_stack
+5.- 

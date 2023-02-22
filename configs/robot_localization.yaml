@@ -2,6 +2,7 @@
 #
 frequency: 50
 
+#Odometry
 odom0: /jackal_velocity_controller/odom
 odom0_config: [false, false, false,
                false, false, false,
@@ -10,6 +11,7 @@ odom0_config: [false, false, false,
                false, false, false]
 odom0_differential: false
 
+#IMU
 imu0: /imu/data
 imu0_config: [false, false, false,
               true, true, true,
