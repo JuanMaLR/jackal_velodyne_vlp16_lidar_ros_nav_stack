@@ -17,17 +17,18 @@
     <!-- Launch gmapping node and move base to generate map of environment -->
     <!-- This is only done one time to generate the map, it should be commented 
     once the map is obtained -->
-    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_mapping.launch"/>-->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_mapping_real.launch"/>
 
     <!-- Static transform to let ROS know the 3D LiDAR position from base_link -->
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_lidar" args="0 0 0 0 0 0 /base_link /velodyne 100" />
+    <node pkg="tf" type="static_transform_publisher" name="front_mount_to_lidar" args="0 0 0.4 0 0 0 /front_mount /velodyne 100" />
 
     <!-- Launch map, localization and navigation -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_navigating_real.launch"/>
+    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_navigating_real.launch"/>-->
 
     <!-- Launch robot_localization package for improved odometry against real life noise -->
-    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <!-- Jackal robot already contains a running ekf_node using encoders, imu and gps -->
+    <!--<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
       <rosparam command="load" file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/configs/robot_localization.yaml" />
-    </node>
+    </node>-->
 
 </launch>

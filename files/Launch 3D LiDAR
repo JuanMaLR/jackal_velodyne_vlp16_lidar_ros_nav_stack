@@ -16,6 +16,7 @@ Steps for launching 3D LiDAR on ROS (VLP-16 from Velodyne):
 4. This will generate a topic called: /velodyne_points
 	4a. To visualize the output run rviz: rosrun rviz rviz
 	4b. Select the fixed frame under global options to be velodyne
+		4b1. If you can't find the frame, execute rosrun tf static_transform_publisher 0 0 0 0 0 0 1 map velodyne 10 to make the connection
 	4c. Add a PointCloud2 visualization and select the topic to be /velodyne_points
 	
 References: 
