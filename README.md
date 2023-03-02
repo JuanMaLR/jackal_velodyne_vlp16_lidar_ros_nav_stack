@@ -36,6 +36,7 @@ If the user changes the gazebo simulated world a new map should be made. To do s
 - Once the map is completed save the map in the corresponding folder using the following commands on a new terminal: ``` rosrun map_server map_saver -f mymap ```. Where mymap can be any name you choose for your map.
 - Wait for map to be saved and terminate execution. 
 - Restore navigation launch files in simulation.launch.  
+- Make sure the map's name you'll use is set to "mymap" and is inside the maps folder. If you have several map files give them a temporary name. The alternative is to modify the robot's params files but that's more cumbersome. 
 
 Once the map is ready and the simulation.launch file has been changed accordingly, running the simulation.launch file should open Rviz where the user should first indicate the intial pose of the robot and then indicate a goal pose so the robot starts navigating autonomously. 
 
