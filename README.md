@@ -57,15 +57,23 @@ export ROS_IP=192.168.0.102
 ```
 roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_robot.launch
 ```
-This will start gmapping and move_base, as well as the lidar and the static transform for the lidar.
+This will start gmapping and move_base (if in mapping phase) or the amcl and move base (if in navigating phase), as well as the lidar and the static transform for the lidar.
 
 To be able to visualize the robot, the topics, tf's, etc., use RVIZ on the ground computer. 
 - First, verify that on your .bashrc you have: 
 ```
-export ROS_MASTER_URI=http://192.168.0.102:11311
+export ROS_MASTER_URI=http://cpr-j100-0395:11311
 export ROS_HOSTNAME=192.168.0.10
 export ROS_IP=192.168.0.10
 ```
+
+Also, make sure that in your /etc/hosts file you add the following line:
+
+```
+192.168.0.102   cpr-j100-0395
+```
+
+This will let your computer know that the ip 192.168.0.102 has associated the hostname of the jackal robot (cpr-j100-0395)
 
 Then, launch:
 ```
