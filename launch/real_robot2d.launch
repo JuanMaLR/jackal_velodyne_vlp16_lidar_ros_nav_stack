@@ -15,7 +15,7 @@
 
     <!-- Static transform to let ROS know the 2D LiDAR position from front_mount --> 
     <!-- The 180 degree rotation is necessary because the 2D LiDAR cable points inwards the robot (cable is near the center of the robot), 
-    if it pointed outwards no yaw rotation would be neccessary -->
+    if it pointed outwards no yaw rotation would be neccessary. The reason for this it the 2D LiDAR coordinate frame obtained in the datasheet -->
     <!-- static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms -->
     <node pkg="tf" type="static_transform_publisher" name="front_mount_to_lidar" args="0 0 0 3.14159 0 0 /front_mount /laser 100" />
 
