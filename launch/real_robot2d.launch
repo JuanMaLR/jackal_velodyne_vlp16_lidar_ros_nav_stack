@@ -13,7 +13,10 @@
     once the map is obtained -->
     <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_mapping_2d_real.launch"/>-->
 
-    <!-- Static transform to let ROS know the 2D LiDAR position from front_mount -->
+    <!-- Static transform to let ROS know the 2D LiDAR position from front_mount --> 
+    <!-- The 180 degree rotation is necessary because the 2D LiDAR cable points inwards the robot (cable is near the center of the robot), 
+    if it pointed outwards no yaw rotation would be neccessary -->
+    <!-- static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms -->
     <node pkg="tf" type="static_transform_publisher" name="front_mount_to_lidar" args="0 0 0 3.14159 0 0 /front_mount /laser 100" />
 
     <!-- Launch map, localization and navigation -->
