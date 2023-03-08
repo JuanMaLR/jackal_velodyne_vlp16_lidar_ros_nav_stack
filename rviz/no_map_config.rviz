@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /LiDAR 3D1
       Splitter Ratio: 0.5
     Tree Height: 719
   - Class: rviz/Selection
@@ -70,7 +71,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        fenders_link:
+        front_fender_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -97,36 +98,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        mid_vlp16_leg1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_leg2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_leg3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_leg4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        mid_vlp16_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        mid_vlp16_plate:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         navsat_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_fender_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -141,16 +118,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         rear_right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        velodyne:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        velodyne_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -264,7 +231,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.05000000074505806
       Style: Flat Squares
       Topic: /velodyne_points/filtered
       Unreliable: false
