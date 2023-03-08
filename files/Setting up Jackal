@@ -14,6 +14,7 @@ For my LiDAR project:
 1.- Download the pcl libraries required for compilation:
 	1a. sudo apt-get install ros-noetic-pcl-conversions
 	1b. sudo apt-get install ros-noetic-pcl-ros
+	1.c sudo apt install ros-noetic-pointcloud-to-laserscan
 2.- Under catkin_ws/src clone the github repository: git clone https://github.com/JuanMaLR/jackal_velodyne_vlp16_lidar_ros_nav_stack.git
 3.- Change directory to catkin_ws/
 4.- Compile the project: catkin_make --only-pkg-with-deps jackal_velodyne_vlp16_lidar_ros_nav_stack
