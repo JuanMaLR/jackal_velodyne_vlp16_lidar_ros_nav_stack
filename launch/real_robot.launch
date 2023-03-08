@@ -2,7 +2,7 @@
 <launch>
 
     <!-- Launch 3D LiDAR to create /velodyne_points topic. -->
-    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch.launch"/>
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
 
     <!-- Add a remap so the topic name matches the one referred to on filtering_downsample.launch -->
     <remap from="/velodyne_points" to="/mid/points"/>
