@@ -9,6 +9,7 @@ Panels:
         - /Global Markers1
         - /Local Markers1
         - /LiDAR Markers1
+        - /LiDAR Markers1/LiDAR 3D1
         - /Frame Markers1
         - /Robot Markers1
         - /Pose Markers1
@@ -184,7 +185,7 @@ Visualization Manager:
           Queue Size: 10
           Selectable: true
           Size (Pixels): 3
-          Size (m): 0.009999999776482582
+          Size (m): 0.05000000074505806
           Style: Flat Squares
           Topic: /velodyne_points/filtered
           Unreliable: false
@@ -213,7 +214,7 @@ Visualization Manager:
               Value: true
             chassis_link:
               Value: true
-            fenders_link:
+            front_fender_link:
               Value: true
             front_left_wheel_link:
               Value: true
@@ -227,21 +228,11 @@ Visualization Manager:
               Value: true
             mid_mount:
               Value: true
-            mid_vlp16_leg1:
-              Value: true
-            mid_vlp16_leg2:
-              Value: true
-            mid_vlp16_leg3:
-              Value: true
-            mid_vlp16_leg4:
-              Value: true
-            mid_vlp16_mount:
-              Value: true
-            mid_vlp16_plate:
-              Value: true
             navsat_link:
               Value: true
             odom:
+              Value: true
+            rear_fender_link:
               Value: true
             rear_left_wheel_link:
               Value: true
@@ -250,8 +241,6 @@ Visualization Manager:
             rear_right_wheel_link:
               Value: true
             velodyne:
-              Value: true
-            velodyne_base_link:
               Value: true
           Marker Alpha: 1
           Marker Scale: 1
@@ -264,7 +253,7 @@ Visualization Manager:
               odom:
                 base_link:
                   chassis_link:
-                    fenders_link:
+                    front_fender_link:
                       {}
                     front_left_wheel_link:
                       {}
@@ -274,23 +263,13 @@ Visualization Manager:
                       {}
                     mid_mount:
                       front_mount:
-                        {}
-                      mid_vlp16_mount:
-                        mid_vlp16_leg1:
+                        velodyne:
                           {}
-                        mid_vlp16_leg2:
-                          {}
-                        mid_vlp16_leg3:
-                          {}
-                        mid_vlp16_leg4:
-                          {}
-                        mid_vlp16_plate:
-                          velodyne_base_link:
-                            velodyne:
-                              {}
                       rear_mount:
                         {}
                     navsat_link:
+                      {}
+                    rear_fender_link:
                       {}
                     rear_left_wheel_link:
                       {}
@@ -321,7 +300,7 @@ Visualization Manager:
               Show Axes: false
               Show Trail: false
               Value: true
-            fenders_link:
+            front_fender_link:
               Alpha: 1
               Show Axes: false
               Show Trail: false
@@ -348,36 +327,12 @@ Visualization Manager:
               Alpha: 1
               Show Axes: false
               Show Trail: false
-            mid_vlp16_leg1:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            mid_vlp16_leg2:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            mid_vlp16_leg3:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            mid_vlp16_leg4:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            mid_vlp16_mount:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-            mid_vlp16_plate:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
             navsat_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            rear_fender_link:
               Alpha: 1
               Show Axes: false
               Show Trail: false
@@ -392,16 +347,6 @@ Visualization Manager:
               Show Axes: false
               Show Trail: false
             rear_right_wheel_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            velodyne:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            velodyne_base_link:
               Alpha: 1
               Show Axes: false
               Show Trail: false
@@ -497,7 +442,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 12.382316589355469
+      Distance: 9.670178413391113
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -505,17 +450,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 0.41930946707725525
+        Y: -3.1828200817108154
+        Z: 1.18233323097229
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.39039838314056396
+      Pitch: 0.7053981423377991
       Target Frame: <Fixed Frame>
-      Yaw: 5.94857931137085
+      Yaw: 2.9535748958587646
     Saved: ~
 Window Geometry:
   Displays:
