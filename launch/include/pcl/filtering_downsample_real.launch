@@ -1,0 +1,63 @@
+<!-- Dimension reduction and downsampling nodelets -->
+<launch>
+    <!-- Launch the nodelet manager for pcl -->
+    <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+
+    <!-- Passthrough to filter out points outside the CropBox -->
+    <!-- Perfom a filtering along a specified dimension (cut off values that are
+        inside or outside a given user range). The given user range is defined in the 
+        rosparam data 
+        PCL tutorials: https://pcl.readthedocs.io/projects/tutorials/en/master/index.html#filtering 
+        PassThrough tutorial: https://pointclouds.org/documentation/tutorials/passthrough.html -->
+    <node pkg="nodelet" type="nodelet" name="passthrough" args="load pcl/PassThrough pcl_manager" output="screen">
+        <remap from="~input" to="/mid/points" />
+        <remap from="~output" to="/velodyne_points/passthrough" />
+        <!-- From the center of the LiDAR's /velodyne frame what distance up and down
+        should the filter utilize. Everything above max and below min is removed -->
+        <rosparam>
+            filter_field_name: z
+            filter_limit_min: -0.20
+            filter_limit_max: 0.10
+            filter_limit_negative: False
+        </rosparam>
+    </node>
+
+    <!-- Get rid of pesky noise using radius outlier filter -->
+    <!-- This filter works using neighbors. The user specifies the number of 
+        neighbors a point in the pointCloud must have in order to remain in the 
+        cloud. If a point has less than the specified neighbors, then that point
+        is removed from the cloud 
+        Documentation: https://pcl.readthedocs.io/projects/tutorials/en/master/remove_outliers.html -->
+    <node pkg="nodelet" type="nodelet" name="radius_outlier_removal" args="load pcl/RadiusOutlierRemoval pcl_manager" output="screen">
+        <remap from="~input" to="/velodyne_points/passthrough" />
+        <remap from="~output" to="/velodyne_points/outlier_removed" />
+        <rosparam>
+            <!-- Neighbor area to check points -->
+            <!-- Keep points with neighbor points larger than this number -->
+            radius_search: 0.10
+            min_neighbors: 1
+            <!-- Here, we are asking to keep all the points that have at least 1 
+            neighbor in a 0.1m? -->
+            <!-- So all points that don't have 1 neighbor in a 0.1m radius are removed-->
+        </rosparam>
+    </node>
+
+    <!-- VoxelGrid downsampling to produce a less dense point cloud -->
+    <!-- Creates a 3D box, a cube in space over the input pointcloud.
+        This means that the cubes will contain inside them some points from the cloud.
+        Those points inside the cube will be eliminated and replaced with 
+        the cube centroid. Meaning that less points will be received in the output cloud.
+        This helps remove detail from the cloud, improving performance without loosing 
+        main features of the cloud. -->
+    <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
+        <remap from="~input" to="/velodyne_points/outlier_removed" />
+        <remap from="~output" to="/velodyne_points/filtered" />
+        <rosparam>
+            filter_field_name: z
+            filter_limit_min: -0.28
+            filter_limit_max: 0.10
+            filter_limit_negative: False
+            leaf_size: 0.05
+        </rosparam>
+    </node>
+</launch>

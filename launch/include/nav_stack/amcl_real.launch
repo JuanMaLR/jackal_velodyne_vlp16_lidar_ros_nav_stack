@@ -56,7 +56,7 @@
     <param name="first_map_only" value="false"/>
     <!--<remap from="scan" to="$(arg scan_topic)"/>-->
     <!-- If using the EKF localization node we need to remap odom -->
-    <!--<remap from="odom" to="odometry/filtered" />-->
+    <remap from="odom" to="odometry/filtered" />
   </node>
 
 </launch>

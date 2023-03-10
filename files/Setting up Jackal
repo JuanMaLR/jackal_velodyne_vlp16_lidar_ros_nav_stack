@@ -29,7 +29,19 @@ Original frames in the jackal robot include a base_link, chassis_link, mid_mount
 base_link to chassis_link suffers no translation 
 chassis_link to mid_mount has a z translation of 0.184
 mid_mount to front_mount has an x translation of 0.120
-Then I can ignore the translation required for my 2D LiDAR
+front_mount to velodyne has a z translation of 0.0377
+
+Total: 0.184+0.0377=0.2217 ~ 0.222
+
+In my simulation the transform distances are:
+/base_link -> /chassis_link - 0
+/chassis_link -> /mid_mount - 0.184 in z - from the center of the robot to its surface
+/mid_mount -> /mid_vlp16_mount - 0
+/mid_vlp16_mount -> /mid_vlp16_plate - 0.1 in z - from the surface of the robot to the base of the plate holding the LiDAR
+/mid_vlp16_plate -> /velodyne_base_link - 0
+/velodyne_base_link -> /velodyne - 0.038 en z - from the base of the plate to the center of the LiDAR sensor 
+
+In total: 0.184+0.1+0.038 = 0.322 -> that's why on the filtering_downsample.launch the min is -0.3
 
 To visualize frames tree in the jackal:
 rosrun tf2_tools view_frames.py
