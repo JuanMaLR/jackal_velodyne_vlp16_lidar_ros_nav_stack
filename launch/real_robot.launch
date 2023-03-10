@@ -1,6 +1,12 @@
 <!-- Main launch file for real robot (launch in jackal computer) -->
 <launch>
 
+    <!-- Add a remap so the topic name matches the one referred to on filtering_downsample.launch -->
+    <remap from="/velodyne_points" to="/mid/points"/>
+
+    <!-- Launch 3D LiDAR to create /velodyne_points topic. -->
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+
     <!-- Launching ROS Navigation Stack nodes -->
     <!-- Launch gmapping node and move base to generate map of environment -->
     <!-- This is only done one time to generate the map, it should be commented 
