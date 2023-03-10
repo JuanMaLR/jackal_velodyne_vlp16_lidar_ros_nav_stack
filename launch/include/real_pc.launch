@@ -1,12 +1,6 @@
 <!-- Main launch file for pc that remotely controls the jackal robot -->
 <launch>
 
-    <!-- Launching PCL nodes for PointCloud downsampling and dimension reduction -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/pcl/filtering_downsample_real.launch"/>
-
-    <!-- Launching PointCloud to LaserScan conversion node -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/pcl/point_cloud_to_laser_scan.launch"/>
-
     <!-- Launching Rviz with mapping configuration (only uncomment when 
     creating the map of the environment) -->
     <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/rviz/rviz_launch.launch"/>-->
