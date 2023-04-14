@@ -59,7 +59,7 @@ TrajectoryPlannerROS:
   #How far to look ahead in meters diferentiating between different rotational velocities
   heading_lookahead: 0.325 #Default: 0.325
   #Whether to score based on the robot's heading to the path or its distance from the path. default false  
-  heading_scoring: false #Default: false
+  heading_scoring: true #Default: false
   #How far to look ahead in time in seconds along the simulated trajectory when using heading scoring (double, default: 0.8)
   heading_scoring_timestep: 0.8 #Default: 0.8
   #Whether to use the Dynamic Window Approach (DWA) or whether to use Trajectory Rollout
