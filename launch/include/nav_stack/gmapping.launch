@@ -48,7 +48,7 @@
     <param name="particles" value="10"/>
 
     <!-- Anyting above the threshold will be marked as occupied -->
-    <param name="occ_thresh" value="0.15"/>
+    <!--<param name="occ_thresh" value="0.15"/>-->
 
     <!-- Initial map size  -->
     <param name="xmin" value="-10.0"/>
