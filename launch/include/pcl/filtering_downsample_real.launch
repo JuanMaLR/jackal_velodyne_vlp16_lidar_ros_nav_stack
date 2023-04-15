@@ -16,8 +16,8 @@
         should the filter utilize. Everything above max and below min is removed -->
         <rosparam>
             filter_field_name: z
-            filter_limit_min: -0.24
-            filter_limit_max: 0.10
+            filter_limit_min: -0.42 <!-- Original was -0.24 (plus 18cm from the base) -->
+            filter_limit_max: 0.40 <!--Original was 0.10 -->
             filter_limit_negative: False
         </rosparam>
     </node>
