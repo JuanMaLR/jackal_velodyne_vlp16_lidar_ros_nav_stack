@@ -17,7 +17,7 @@
     <!-- Launch gmapping node and move base to generate map of environment -->
     <!-- This is only done one time to generate the map, it should be commented 
     once the map is obtained -->
-    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_mapping_real.launch"/>
+    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_mapping_real.launch"/>-->
 
     <!-- Static transform to let ROS know the 3D LiDAR position from base_link -->
     <!-- Given the 3D LiDAR coordinate frame found in the datasheet no yaw rotation is required as opposed to the 2d LiDAR -->
@@ -26,7 +26,7 @@
     <node pkg="tf" type="static_transform_publisher" name="front_mount_to_lidar" args="0 0 0.18 0 0 0 /front_mount /velodyne 50" />
 
     <!-- Launch map, localization and navigation -->
-    <!--<include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_navigating_real.launch"/>-->
+    <include file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/launch/include/start_navigating_real.launch"/>
 
     <!-- Launch robot_localization package for improved odometry against real life noise -->
     <!-- Jackal robot already contains a running ekf_node using encoders, imu and gps -->

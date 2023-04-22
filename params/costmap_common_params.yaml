@@ -38,8 +38,8 @@ obstacles_layer:
 #In charge of inflating (blue color in RVIZ) each cell with an obstacle
 inflater_layer:
   #inflation_radius: 0.30
-  #Increased for better detecting obstacles
-  inflation_radius: 0.35 #Default: 0.55
+  #Reduces to give more mobility to the robot in the rows
+  inflation_radius: 0.2 #Default: 0.55 #Simualtion: 0.35
   #Scaling factor to apply cost values during inflation
   #cost_scaling_factor: 10.0 #Default: 10.0
 
