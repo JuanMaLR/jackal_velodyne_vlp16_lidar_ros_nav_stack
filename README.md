@@ -22,6 +22,8 @@ To download and be able to execute this project:
 - Install any missing dependencies ``` rosdep install --from-paths src --ignore-src --rosdistro=$ROS_DISTRO -y ```
 - Install Jackal packages ``` sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop ros-noetic-jackal-navigation ```
 
+For additonal packages installation instructions, please refer to [dinvincible98 GitHub](https://github.com/dinvincible98/Jackal_ROS_Noetic_Bringup)
+
 # Instructions 
 In order to run the simulation, execute the following launch file: 
 ```
@@ -95,6 +97,8 @@ roslaunch jackal_velodyne_vlp16_lidar_ros_nav_stack real_pc_2d.launch
 
 For more instructions on how to configure this connection check: [jackal_site](https://www.clearpathrobotics.com/assets/guides/melodic/jackal/network.html)
 and [jackal_video](https://www.youtube.com/watch?v=U-YgKVRDc3w)
+
+This and the previous section provide brief instructions on how to download and configure the project for the owner of the repository. Several adjustments like the IP addresses might be necessary depending on who clones the project. For more detailed instructions, please refer to the "Installation and Configuration" section on Chapter 3 of the [Master Tesis](www.google.com) this project is developed for. 
 
 # LiDAR's configurations
 Online documentation is a bit unclear, so under the files folder of this project two instruction manuals (one for 2D and other for 3D LiDAR) as txt files are included. 
