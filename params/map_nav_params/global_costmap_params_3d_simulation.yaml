@@ -1,0 +1,15 @@
+global_costmap:
+   #Default is map, no need to specify again
+   global_frame: map #Since noetic no need to add the / at the beginning of the frame
+
+   #Deprecated
+   #static_map: true
+   #Default is false
+   rolling_window: false 
+
+   #Normally, just two layers are used in global_costmaps
+   #Jackal course uses 3
+   plugins:
+   - {name: static_layer, type: "costmap_2d::StaticLayer"}
+   - {name: obstacles_laser, type: "costmap_2d::VoxelLayer"}
+   - {name: inflation_layer, type: "costmap_2d::InflationLayer"}

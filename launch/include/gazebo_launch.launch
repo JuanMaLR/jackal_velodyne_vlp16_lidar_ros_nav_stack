@@ -2,12 +2,12 @@
 <launch>
   <!-- Variables/arguments default declaration (used if not defined in shell when launching) -->
   <arg name="use_sim_time" default="true" />
-  <arg name="gui" default="true" />
+  <arg name="gui" default="false" />
   <arg name="headless" default="false" />
   <!-- Maze with obstacles to compare the two LiDARs -->
-  <arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/test_mode.world"/>
+  <!--<arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/test_mode.world"/>-->
   <!-- Simple maze used to fine tune the algorithm before testing -->
-  <!--<arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/jackal_race.world"/>-->
+  <arg name="world_name" default="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/worlds/jackal_race.world"/>
   <arg name="robot_configuration" default="complete" />
 
   <!-- Launch Gazebo with the specified world -->

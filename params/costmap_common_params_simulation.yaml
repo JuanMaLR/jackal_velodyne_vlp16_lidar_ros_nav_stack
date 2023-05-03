@@ -1,0 +1,52 @@
+#Deprecated
+#map_type: costmap
+origin_z: 0.0
+z_resolution: 1
+z_voxels: 2
+
+robot_base_frame: base_link
+
+#How often (frequency) the local costmap will be updated 
+#Cycle: sensor data comes in, marking and clearing operations, 
+#cost values assigned to each cell in grid of costmap, obstacle inflation 
+#is performed where needed (in cells with obstacles values)
+update_frequency: 5.0 #Default: 5.0
+publish_frequency: 2.0
+
+#Set threshold distance (in meters).
+#If something is above the threshold it won't appear in the map. 
+#This helps save computer resources
+obstacle_range: 3.0 #So costmap will only be updated with obstacles that are within 2.5m from the robot
+raytrace_range: 3.5 #Related to freespace. If no obstacle is detected the area within 
+#3m from the robot will be marked as free space
+
+publish_voxel_map: false
+transform_tolerance: 0.5
+meter_scoring: true
+
+#footprint: [[-0.21, -0.165], [-0.21, 0.165], [0.21, 0.165], [0.21, -0.165]]
+#Increased for protection against obstacles
+#Contour of mobile base
+footprint: [[-0.25,-0.18],[-0.25,0.18],[0.25,0.18],[0.25,-0.18]]
+footprint_padding: 0.2
+
+#In charge of marking and clearing operations
+obstacles_laser:
+  observation_sources: scan #Topics names for sensors like LiDAR
+  scan: {sensor_frame: velodyne, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+#In charge of inflating (blue color in RVIZ) each cell with an obstacle
+inflation_layer:
+  #inflation_radius: 0.30
+  #0.35 is ideal for the maze, a bigger one won't allow the robot to go beneath the table
+  #because the legs inflation will tell the robot that it can't pass
+  inflation_radius: 0.35 #Default: 0.55 
+  #Scaling factor to apply cost values during inflation
+  #cost_scaling_factor: 10.0 #Default: 10.0
+
+#In charge of providing the static map to the costmaps that require it (global)
+static_layer:
+  #Can't comment out eventhough it has the default value because if not it will
+  #generate cannot marhsal None unless allow_none is enabled
+  map_topic: map #Defult: map
+  subscribe_to_updates: true
