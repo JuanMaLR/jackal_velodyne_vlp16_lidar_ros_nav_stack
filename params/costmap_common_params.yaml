@@ -39,7 +39,7 @@ obstacles_layer:
 inflater_layer:
   #inflation_radius: 0.30
   #Reduces to give more mobility to the robot in the rows
-  inflation_radius: 0.1 #Default: 0.55 #Simualtion: 0.35
+  inflation_radius: 0.3 #Default: 0.55 #Simualtion: 0.35
   #Scaling factor to apply cost values during inflation
   #cost_scaling_factor: 10.0 #Default: 10.0
 
