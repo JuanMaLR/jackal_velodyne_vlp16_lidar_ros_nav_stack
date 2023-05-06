@@ -2,8 +2,8 @@
  
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
-    <rosparam file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/params/costmap_common_params_2d.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/params/costmap_common_params_2d.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/params/costmap_common_params_2d_real.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/params/costmap_common_params_2d_real.yaml" command="load" ns="local_costmap" />
     
     <rosparam file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/params/map_nav_params/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find jackal_velodyne_vlp16_lidar_ros_nav_stack)/params/map_nav_params/global_costmap_params.yaml" command="load" />
