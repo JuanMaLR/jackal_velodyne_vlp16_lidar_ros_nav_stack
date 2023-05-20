@@ -1,0 +1,91 @@
+Odometry initial: 
+header: 
+  seq: 13158
+  stamp: 
+    secs: 1684601519
+    nsecs: 387043953
+  frame_id: "odom"
+child_frame_id: "base_link"
+pose: 
+  pose: 
+    position: 
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    orientation: 
+      x: 0.00038183941856452665
+      y: -0.00124483627635492
+      z: 0.03815175170082194
+      w: 0.999271108570373
+  covariance: [13.168747753105466, -2.5737585418859996e-10, 5.831434208486771e-08, 0.0, 0.0, 0.0, -2.573758541899323e-10, 13.168747759782072, -2.891431350687659e-07, 0.0, 0.0, 0.0, 5.8314342084867115e-08, -2.891431350687587e-07, 15.80119010669243, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00010484318745830673, -1.4128009879523716e-20, -2.32390254645749e-15, 0.0, 0.0, 0.0, -1.4128009879253316e-20, 0.0001048431874583045, 5.801227037867918e-18, 0.0, 0.0, 0.0, -2.3239025464574904e-15, 5.801227037867918e-18, 15.789718931141804]
+twist: 
+  twist: 
+    linear: 
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    angular: 
+      x: 0.0004711377123087462
+      y: 0.0004087004775833199
+      z: -0.0006899365388338989
+  covariance: [0.0011499061064474232, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0011499061064474232, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0015316718070440165, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.5069128115035805e-05, -5.6358414549396625e-28, -4.281442760248494e-25, 0.0, 0.0, 0.0, -5.635841454939662e-28, 3.5069128115035805e-05, 8.437187275346226e-25, 0.0, 0.0, 0.0, -4.2814427602484935e-25, 8.437187275346222e-25, 7.001658038202155e-05]
+
+
+Test 1:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+Test 2:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 3:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 4:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 5:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 6:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 7:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 8:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 9:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
+
+Test 10:
+- Time to goal:
+- Rosbag file name:
+- Odometry final:
+
