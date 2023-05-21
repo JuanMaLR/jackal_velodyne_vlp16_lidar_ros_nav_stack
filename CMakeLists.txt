@@ -15,6 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   sensor_msgs
+  actionlib
+  move_base_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -143,6 +145,7 @@ add_definitions(${PCL_DEFINITIONS})
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/jackal_velodyne_vlp16_lidar_ros_nav_stack_node.cpp)
 #add_executable(floor_removal src/floor_removal.cpp)
+add_executable(simple_navigation_goals src/simple_navigation_goals.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -159,6 +162,7 @@ add_definitions(${PCL_DEFINITIONS})
 #   ${catkin_LIBRARIES}
 # )
 #target_link_libraries(floor_removal ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES})
 
 #############
 ## Install ##
