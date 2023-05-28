@@ -21,13 +21,23 @@ int main(int argc, char** argv){
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp = ros::Time::now();
 
-  goal.target_pose.pose.position.x = 20.181;
+  //Simulated maze with obstacles
+  goal.target_pose.pose.position.x = -4.4643073081970215;
+  goal.target_pose.pose.position.y = 7.921179294586182;
+  goal.target_pose.pose.position.z = 0.0;
+  goal.target_pose.pose.orientation.x = 0.0;
+  goal.target_pose.pose.orientation.y = 0.0;
+  goal.target_pose.pose.orientation.z = 0.3683443106445953;
+  goal.target_pose.pose.orientation.w = 0.9296894475123174;
+
+  //Greenhouse
+  /*goal.target_pose.pose.position.x = 20.181;
   goal.target_pose.pose.position.y = 1.6091225147247314;
   goal.target_pose.pose.position.z = 0.0;
   goal.target_pose.pose.orientation.x = 0.0;
   goal.target_pose.pose.orientation.y = 0.0;
   goal.target_pose.pose.orientation.z = 0.06671776153456495;
-  goal.target_pose.pose.orientation.w = 0.9977718879061571;
+  goal.target_pose.pose.orientation.w = 0.9977718879061571;*/
 
   ROS_INFO("Sending goal");
   ac.sendGoal(goal);

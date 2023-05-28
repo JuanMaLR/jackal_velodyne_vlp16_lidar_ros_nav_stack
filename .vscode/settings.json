@@ -9,6 +9,7 @@
     "files.associations": {
         "*.ejs": "html",
         "variant": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "unordered_map": "cpp"
     }
 }
