@@ -16,11 +16,34 @@ In order to accomplish this, the next steps are taken:
 The project will include a maze simulation and a real world scenario greenhouse with a maze-like structure. 
 
 # Installation
-To download and be able to execute this project: 
-- Clone this project
-- Run ``` catkin_make ``` to compile
-- Install any missing dependencies ``` rosdep install --from-paths src --ignore-src --rosdistro=$ROS_DISTRO -y ```
-- Install Jackal packages ``` sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop ros-noetic-jackal-navigation ```
+To download and be able to execute this project: - Update and upgrade your Operating System (OS) using: ``` sudo apt-get update && upgrade ```
+- Go to the catkin_ws directory under the src folder and clone the repository found [here](https://github.com/JuanMaLR/jackal_velodyne_vlp16_lidar_ros_nav_stack). This will download the project and all its contents. 
+- Without changing directories clone the RPLiDAR A3 Github found at https://github.com/Slamtec/rplidar_ros. This will enable all the files required for controlling the 2D LiDAR from ROS. 
+- Install the PCL libraries and PointCloud to LaserScan conversions package in ROS using:
+	- ``` sudo apt-get install ros-noetic-pcl-conversions ```
+        - ``` sudo apt-get install ros-noetic-pcl-ros ```
+        - ``` sudo apt install ros-noetic-pointcloud-to-laserscan ```
+- Install the Velodyne VLP16 drivers. To do so, execute: ``` sudo apt-get install ros-noetic-velodyne ```. This will install the Velodyne packages for ROS. 
+- If using any ROS version prior to the noetic version (i.e., melodic), install the Jackal packages using: ``` sudo apt-get install ros-melodic-jackal-simulator ros-melodic-jackal-desktop ros-melodic-jackal-navigation ```. This will download all the files required to simulate a Jackal and important files used in the real-life implementation. If noetic is used, the above commands might not work. Try installing them using ``` apt-get ```; if unsuccessful, install the packages from source. To install from source means to enter the catkin_ws/src folder and execute ``` git clone ``` command to each package required to be installed. Then go up one directory and compile each downloaded package using ``` catkin_make ```. The GitHub URL of the packages required to be installed from source are:
+	- https://github.com/jackal/jackal_desktop
+	- https://github.com/jackal/jackal_simulator
+	- https://github.com/jackal/jackal
+- Most systems will require the installation from source of the following two packages: 
+	- https://github.com/uos/sick_tim.git
+	- https://github.com/ros-drivers/flir_camera_driver.git. This package does not require compiling. Compiling will generate an error saying that *Spinnaker.h: File or directory does not exist*.
+- Depending on what previous projects you have worked with on ROS, you might have already installed the other required packages for this project. If you are unsure or want to double check, install from source all the following packages:
+	- https://github.com/jackal/jackal_robot
+        - https://github.com/ros-visualization/interactive_marker_twist_server
+        - https://github.com/clearpathrobotics/lms1xx
+        - https://github.com/ros-drivers/rosserial
+        - https://github.com/ros-perception/openslam_gmapping
+        - https://github.com/ros-perception/slam_gmapping
+- Install the 3D LiDAR drivers using: ``` git clone https://github.com/ros-drivers/velodyne.git ``` 
+- Go to catkin_ws folder, check for missing dependencies, and install them using: ```  rosdep install --from-paths src --ignore-src --rosdistro noetic -y ``` . Note that only dependencies declared in the *package.xml* and *CMakeLists.txt* will be installed by this command. Other packages might need to be installed additionally and will be flagged as errors during compilation. 
+- Once all the packages have been cloned, they must be compiled. To do so, go one directory up using ``` cd .. ``` and compile them in either of two ways:
+	- Execute ``` catkin_make ``` to compile all the contents of your catkin_ws directory. 
+	- Execute ``` catkin_make --only-pkg-with-deps package_name ``` where package_name is the name of the package your downloaded using ``` git clone ```. The package's name is usually the last part of the GitHub URL; all that follows the last forward slash (/). 
+- Every computer is different, and hence additional packages might be needed to be installed. If while compiling any of the packages, an error of type *missing package or package xxx not found* is found, try to install that package first using ``` sudo apt-get install ros-noetic-package-name ``` where the package name is the name of the package to be installed. If a response of type *unable to locate package <package name>* is obtained, then install that package from source as indicated by the instructions above. 
 
 For additonal packages installation instructions, please refer to [dinvincible98 GitHub](https://github.com/dinvincible98/Jackal_ROS_Noetic_Bringup)
 
