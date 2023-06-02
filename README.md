@@ -30,7 +30,7 @@ To download and be able to execute this project: - Update and upgrade your Opera
 	- https://github.com/jackal/jackal
 - Most systems will require the installation from source of the following two packages: 
 	- https://github.com/uos/sick_tim.git
-	- https://github.com/ros-drivers/flir_camera_driver.git. This package does not require compiling. Compiling will generate an error saying that *Spinnaker.h: File or directory does not exist*.
+	- https://github.com/ros-drivers/flir_camera_driver.git. This package does not require compiling. Compiling will generate an error saying that *Spinnaker.h: File or directory does not exist*. This is not an error and will not affect the project execution. Just cloning the git repository satisfies the requirements for this project to run.
 - Depending on what previous projects you have worked with on ROS, you might have already installed the other required packages for this project. If you are unsure or want to double check, install from source all the following packages:
 	- https://github.com/jackal/jackal_robot
 	- https://github.com/ros-visualization/interactive_marker_twist_server
