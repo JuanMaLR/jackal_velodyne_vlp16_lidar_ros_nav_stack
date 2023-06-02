@@ -21,8 +21,8 @@ To download and be able to execute this project: - Update and upgrade your Opera
 - Without changing directories clone the RPLiDAR A3 Github found at https://github.com/Slamtec/rplidar_ros. This will enable all the files required for controlling the 2D LiDAR from ROS. 
 - Install the PCL libraries and PointCloud to LaserScan conversions package in ROS using:
 	- ``` sudo apt-get install ros-noetic-pcl-conversions ```
-        - ``` sudo apt-get install ros-noetic-pcl-ros ```
-        - ``` sudo apt install ros-noetic-pointcloud-to-laserscan ```
+	- ``` sudo apt-get install ros-noetic-pcl-ros ```
+	- ``` sudo apt install ros-noetic-pointcloud-to-laserscan ```
 - Install the Velodyne VLP16 drivers. To do so, execute: ``` sudo apt-get install ros-noetic-velodyne ```. This will install the Velodyne packages for ROS. 
 - If using any ROS version prior to the noetic version (i.e., melodic), install the Jackal packages using: ``` sudo apt-get install ros-melodic-jackal-simulator ros-melodic-jackal-desktop ros-melodic-jackal-navigation ```. This will download all the files required to simulate a Jackal and important files used in the real-life implementation. If noetic is used, the above commands might not work. Try installing them using ``` apt-get ```; if unsuccessful, install the packages from source. To install from source means to enter the catkin_ws/src folder and execute ``` git clone ``` command to each package required to be installed. Then go up one directory and compile each downloaded package using ``` catkin_make ```. The GitHub URL of the packages required to be installed from source are:
 	- https://github.com/jackal/jackal_desktop
@@ -33,11 +33,11 @@ To download and be able to execute this project: - Update and upgrade your Opera
 	- https://github.com/ros-drivers/flir_camera_driver.git. This package does not require compiling. Compiling will generate an error saying that *Spinnaker.h: File or directory does not exist*.
 - Depending on what previous projects you have worked with on ROS, you might have already installed the other required packages for this project. If you are unsure or want to double check, install from source all the following packages:
 	- https://github.com/jackal/jackal_robot
-        - https://github.com/ros-visualization/interactive_marker_twist_server
-        - https://github.com/clearpathrobotics/lms1xx
-        - https://github.com/ros-drivers/rosserial
-        - https://github.com/ros-perception/openslam_gmapping
-        - https://github.com/ros-perception/slam_gmapping
+	- https://github.com/ros-visualization/interactive_marker_twist_server
+	- https://github.com/clearpathrobotics/lms1xx
+	- https://github.com/ros-drivers/rosserial
+	- https://github.com/ros-perception/openslam_gmapping
+	- https://github.com/ros-perception/slam_gmapping
 - Install the 3D LiDAR drivers using: ``` git clone https://github.com/ros-drivers/velodyne.git ``` 
 - Go to catkin_ws folder, check for missing dependencies, and install them using: ```  rosdep install --from-paths src --ignore-src --rosdistro noetic -y ``` . Note that only dependencies declared in the *package.xml* and *CMakeLists.txt* will be installed by this command. Other packages might need to be installed additionally and will be flagged as errors during compilation. 
 - Once all the packages have been cloned, they must be compiled. To do so, go one directory up using ``` cd .. ``` and compile them in either of two ways:
